@@ -2,7 +2,7 @@
     <string name="app_name">NG Chat</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_login">Login Activity</string>
+    <string name="title_activity_login">Login</string>
     <string name="FORGOT_USERNAME">Forgot Username</string>
     <string name="FORGOT_PASSWORD">Forgot Password</string>
     <string name="SIGN_UP">Sign up</string>
@@ -12,4 +12,8 @@
     <string name="title_activity_sign_up">Sign Up</string>
     <string name="USERNAME_EMAIL_HINT_STRING">Enter email</string>
     <string name="SIGN_UP_BUTTON">Sign up!</string>
+    <string name="SIGN_UP_ERROR_MESSAGE">Please make sure all fields are not empty</string>
+    <string name="SIGN_UP_ERROR_TITLE">Incomplete form</string>
+    <string name="LOGIN_ERROR_TITLE">Login Failed</string>
+    <string name="MENU_LOGOUT_LABEL">Log out</string>
 </resources>

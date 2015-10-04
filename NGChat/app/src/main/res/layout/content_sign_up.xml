@@ -16,7 +16,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="@string/USERNAME_HINT_STRING" />
+        android:hint="@string/USERNAME_HINT_STRING"
+        android:textSize="18sp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -28,7 +29,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:hint="@string/USERNAME_EMAIL_HINT_STRING"
-         />
+        android:textSize="18sp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -39,7 +40,8 @@
         android:layout_below="@+id/signUpUsernameEditText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="@string/PASSWORD_HINT_STRING" />
+        android:hint="@string/PASSWORD_HINT_STRING"
+        android:textSize="18sp" />
 
     <Button
         android:layout_width="match_parent"

@@ -16,4 +16,10 @@
     <string name="SIGN_UP_ERROR_TITLE">Incomplete form</string>
     <string name="LOGIN_ERROR_TITLE">Login Failed</string>
     <string name="MENU_LOGOUT_LABEL">Log out</string>
+    <string name="title_activity_forgot_password">Password Reset</string>
+    <string name="FORGOT_PASSWORD_RESET_BUTTON">Reset Password</string>
+    <string name="FORGOT_PASSWORD_EMPTY_EMAIL">E-mail field must be filled with valid email</string>
+    <string name="FORGOT_PASSWORD_SUCCESS_MESSAGE">A link to reset your password has been sent to the email address provided.</string>
+    <string name="FORGOT_PASSWORD_ERROR_TITLE">Error</string>
+    <string name="FORGOT_PASSWORD_RESET_SUCCESS_TITLE">Reset Successful</string>
 </resources>

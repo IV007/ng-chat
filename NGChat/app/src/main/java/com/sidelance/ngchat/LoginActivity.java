@@ -26,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     protected EditText mUsername;
     protected EditText mPassword;
     protected Button mLoginButton;
+    protected TextView mForgotPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
@@ -45,7 +47,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        mForgotPassword = (TextView) findViewById(R.id.forgotPasswordTextView);
+        mUsername = (EditText) findViewById(R.id.userNameEditText);
+        mPassword = (EditText) findViewById(R.id.passwordEditText);
+        mLoginButton = (Button) findViewById(R.id.loginButton);
         mSignUpTextView = (TextView) findViewById(R.id.signUpTextView);
+
         mSignUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,9 +61,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        mUsername = (EditText) findViewById(R.id.userNameEditText);
-        mPassword = (EditText) findViewById(R.id.passwordEditText);
-        mLoginButton = (Button) findViewById(R.id.loginButton);
+        mForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
+                startActivity(intent);
+            }
+        });
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override

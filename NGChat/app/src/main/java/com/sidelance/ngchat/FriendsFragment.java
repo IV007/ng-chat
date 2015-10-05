@@ -76,7 +76,7 @@ public class FriendsFragment extends ListFragment {
 
                 } else {
                     Log.e(TAG, e.getMessage());
-                    Tools.displayEditFriendsErrorDialog(e, getString(R.string.ERROR_TITLE), getContext());
+                    Tools.displayErrorDialog(e, getString(R.string.ERROR_TITLE), getContext());
 
                 }
             }

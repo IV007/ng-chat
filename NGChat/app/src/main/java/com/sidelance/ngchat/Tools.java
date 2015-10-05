@@ -10,7 +10,7 @@ import com.parse.ParseException;
  */
 public class Tools {
 
-    public static void displayEditFriendsErrorDialog(ParseException e, String title, Context context) {
+    public static void displayErrorDialog(ParseException e, String title, Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(e.getMessage())
                 .setTitle(title)

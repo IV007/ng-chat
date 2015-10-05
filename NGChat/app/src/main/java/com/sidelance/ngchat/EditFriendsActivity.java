@@ -78,7 +78,7 @@ public class EditFriendsActivity extends ListActivity {
 
                 } else {
 
-                    Tools.displayEditFriendsErrorDialog(e, getString(R.string.ERROR_TITLE), EditFriendsActivity.this);
+                    Tools.displayErrorDialog(e, getString(R.string.ERROR_TITLE), EditFriendsActivity.this);
                     Log.e(TAG, e.getMessage());
                 }
             }

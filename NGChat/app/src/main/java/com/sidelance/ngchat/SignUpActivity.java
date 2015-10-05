@@ -97,16 +97,21 @@ public class SignUpActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
-                    builder.setMessage(e.getMessage())
-                            .setTitle(R.string.SIGN_UP_ERROR_TITLE)
-                            .setPositiveButton(android.R.string.ok, null);
-
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    String errorTitle = getString(R.string.SIGN_UP_ERROR_TITLE);
+                    displaySignUpErrorDialog(e, errorTitle);
                 }
             }
         });
+    }
+
+    private void displaySignUpErrorDialog(ParseException e, String title) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
+        builder.setMessage(e.getMessage())
+                .setTitle(title)
+                .setPositiveButton(android.R.string.ok, null);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 }

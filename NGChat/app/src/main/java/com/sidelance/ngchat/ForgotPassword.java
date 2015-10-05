@@ -25,9 +25,12 @@ public class ForgotPassword extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -44,60 +47,75 @@ public class ForgotPassword extends AppCompatActivity {
         mEmailEditText = (EditText) findViewById(R.id.forgotEmailEditText);
         mResetPasswordButton = (Button) findViewById(R.id.resetPasswordButton);
 
+        resetPasswordButtonListener();
+    }
+
+    private void resetPasswordButtonListener() {
         mResetPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = mEmailEditText.getText().toString();
 
                 if (TextUtils.isEmpty(email)){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(ForgotPassword.this);
-                    builder.setTitle(R.string.SIGN_UP_ERROR_TITLE);
-                    builder.setMessage(R.string.FORGOT_PASSWORD_EMPTY_EMAIL);
-                    builder.setPositiveButton(android.R.string.ok, null);
-
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    displayIncompleteFormDialog();
                 } else {
 
                     setProgressBarIndeterminateVisibility(true);
-                    ParseUser.requestPasswordResetInBackground(email, new RequestPasswordResetCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            if (e == null){
-                                setProgressBarIndeterminateVisibility(false);
-
-                                AlertDialog.Builder builder = new AlertDialog.Builder(ForgotPassword.this);
-                                builder.setTitle(R.string.FORGOT_PASSWORD_RESET_SUCCESS_TITLE);
-                                builder.setMessage(R.string.FORGOT_PASSWORD_SUCCESS_MESSAGE);
-                                builder.setPositiveButton(R.string.BUTTON_LOGIN, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Intent intent = new Intent(ForgotPassword.this, LoginActivity.class);
-                                        startActivity(intent);
-                                    }
-                                });
-                                AlertDialog dialog = builder.create();
-                                dialog.show();
-
-
-                            } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(ForgotPassword.this);
-                                builder.setMessage(e.getMessage() + " " + R.string.FORGOT_PASSWORD_EMPTY_EMAIL)
-                                        .setTitle(R.string.FORGOT_PASSWORD_ERROR_TITLE)
-                                        .setPositiveButton(android.R.string.ok, null);
-
-                                AlertDialog dialog = builder.create();
-                                dialog.show();
-
-
-
-                            }
-                        }
-                    });
+                    performReequestPasswordResetInBackground(email);
 
                 }
             }
         });
+    }
+
+    private void displayIncompleteFormDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ForgotPassword.this);
+        builder.setTitle(R.string.SIGN_UP_ERROR_TITLE);
+        builder.setMessage(R.string.FORGOT_PASSWORD_EMPTY_EMAIL);
+        builder.setPositiveButton(android.R.string.ok, null);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void performReequestPasswordResetInBackground(String email) {
+        ParseUser.requestPasswordResetInBackground(email, new RequestPasswordResetCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    setProgressBarIndeterminateVisibility(false);
+
+                    displayPasswordRequestSuccessDialog();
+
+
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ForgotPassword.this);
+                    builder.setMessage(e.getMessage() + " " + R.string.FORGOT_PASSWORD_EMPTY_EMAIL)
+                            .setTitle(R.string.FORGOT_PASSWORD_ERROR_TITLE)
+                            .setPositiveButton(android.R.string.ok, null);
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
+
+                }
+            }
+        });
+    }
+
+    private void displayPasswordRequestSuccessDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ForgotPassword.this);
+        builder.setTitle(R.string.FORGOT_PASSWORD_RESET_SUCCESS_TITLE);
+        builder.setMessage(R.string.FORGOT_PASSWORD_SUCCESS_MESSAGE);
+        builder.setPositiveButton(R.string.BUTTON_LOGIN, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(ForgotPassword.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 }

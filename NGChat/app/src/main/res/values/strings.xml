@@ -22,4 +22,13 @@
     <string name="FORGOT_PASSWORD_SUCCESS_MESSAGE">A link to reset your password has been sent to the email address provided.</string>
     <string name="FORGOT_PASSWORD_ERROR_TITLE">Error</string>
     <string name="FORGOT_PASSWORD_RESET_SUCCESS_TITLE">Reset Successful</string>
+    <string name="TITLE_SECTION1">Inbox</string>
+    <string name="TITLE_SECTION2">Friends</string>
+    <string name="TITLE_SECTION3">Contacts</string>
+    <string name="EMPTY_INBOX_LABEL">No new messages</string>
+    <string name="EMPTY_FRIENDS_LABEL">Add friends to begin</string>
+    <string name="MENU_EDIT_FRIENDS_LABEL">Edit Friends</string>
+    <string name="title_activity_edit_friends">Edit Friends</string>
+    <string name="ERROR_TITLE">We\'re sorry!</string>
+    <string name="FRIEND_REQUEST_SENT">A friend request has been sent to</string>
 </resources>

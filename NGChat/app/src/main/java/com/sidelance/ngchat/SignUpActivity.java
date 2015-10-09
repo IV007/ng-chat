@@ -60,19 +60,14 @@ public class SignUpActivity extends AppCompatActivity {
                 password = password.trim();
                 email = email.trim();
 
-                if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password) || TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password) || TextUtils.isEmpty(email)) {
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
-                    builder.setMessage(R.string.SIGN_UP_ERROR_MESSAGE)
-                            .setTitle(R.string.SIGN_UP_ERROR_TITLE)
-                            .setPositiveButton(android.R.string.ok, null);
-
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    Tools.displayErrorDialog(getString(R.string.SIGN_UP_ERROR_MESSAGE), getString(R.string.SIGN_UP_ERROR_TITLE), SignUpActivity.this);
 
                 } else {
 
                     signUpNewUser(username, password, email);
+
                 }
             }
         });
@@ -90,28 +85,27 @@ public class SignUpActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 setProgressBarIndeterminateVisibility(false);
 
-                if (e == null){
-                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                if (e == null) {
+
+                    //Test this method.
+                    Tools.setFlagsAndStartMainActivity(SignUpActivity.this,
+                            MainActivity.class, Intent.FLAG_ACTIVITY_NEW_TASK,
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+//
+//                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                    startActivity(intent);
+
                 } else {
 
                     String errorTitle = getString(R.string.SIGN_UP_ERROR_TITLE);
-                    displaySignUpErrorDialog(e, errorTitle);
+                    Tools.displayErrorDialog(e.getMessage(), errorTitle, SignUpActivity.this);
+                    
                 }
             }
         });
-    }
-
-    private void displaySignUpErrorDialog(ParseException e, String title) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
-        builder.setMessage(e.getMessage())
-                .setTitle(title)
-                .setPositiveButton(android.R.string.ok, null);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
 }

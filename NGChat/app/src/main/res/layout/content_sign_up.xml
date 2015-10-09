@@ -49,5 +49,7 @@
         android:text="@string/SIGN_UP_BUTTON"
         android:id="@+id/signUpButton"
         android:layout_below="@+id/signUpEmailEditText"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#80ffffff"
         />
 </RelativeLayout>

@@ -45,7 +45,9 @@
             android:layout_below="@+id/passwordEditText"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#80ffffff"/>
 
 
     <TextView

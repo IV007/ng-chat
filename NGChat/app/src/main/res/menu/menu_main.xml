@@ -15,5 +15,12 @@
         android:title="@string/MENU_EDIT_FRIENDS_LABEL"
         android:orderInCategory="100"
         />
+
+    <item
+        android:id="@+id/action_camera"
+        android:title="@string/MENU_CAMERA_LABEL"
+        android:icon="@drawable/ic_action_camera"
+        app:showAsAction="always"
+        />
 </menu>
 

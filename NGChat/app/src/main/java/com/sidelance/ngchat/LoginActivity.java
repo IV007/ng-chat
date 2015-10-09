@@ -56,6 +56,11 @@ public class LoginActivity extends AppCompatActivity {
         mSignUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Test this method
+                Tools.startActivityIntent(LoginActivity.this, SignUpActivity.class);
+
+
                 Intent signUpIntent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(signUpIntent);
             }
@@ -64,6 +69,11 @@ public class LoginActivity extends AppCompatActivity {
         mForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Test this method.
+                Tools.startActivityIntent(LoginActivity.this, ForgotPassword.class);
+
+
                 Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
                 startActivity(intent);
             }
@@ -80,13 +90,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                    builder.setMessage(R.string.SIGN_UP_ERROR_MESSAGE)
-                            .setTitle(R.string.SIGN_UP_ERROR_TITLE)
-                            .setPositiveButton(android.R.string.ok, null);
-
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    Tools.displayErrorDialog(getString(R.string.SIGN_UP_ERROR_MESSAGE), getString(R.string.SIGN_UP_ERROR_TITLE), LoginActivity.this);
 
                 } else {
 
@@ -97,20 +101,22 @@ public class LoginActivity extends AppCompatActivity {
                             setProgressBarIndeterminateVisibility(false);
 
                             if (e == null){
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
+
+                                //Test this method.
+                                Tools.setFlagsAndStartMainActivity(LoginActivity.this,
+                                        MainActivity.class, Intent.FLAG_ACTIVITY_NEW_TASK,
+                                        Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+
+//                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                startActivity(intent);
 
                             } else{
 
-                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage(e.getMessage())
-                                        .setTitle(R.string.LOGIN_ERROR_TITLE)
-                                        .setPositiveButton(android.R.string.ok, null);
+                                Tools.displayErrorDialog(e.getMessage(), getString(R.string.LOGIN_ERROR_TITLE), LoginActivity.this);
 
-                                AlertDialog dialog = builder.create();
-                                dialog.show();
                             }
                         }
                     });

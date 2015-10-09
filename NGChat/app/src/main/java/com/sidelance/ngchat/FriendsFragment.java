@@ -43,8 +43,8 @@ public class FriendsFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_friends, container, false);
-        return rootView;
+
+        return inflater.inflate(R.layout.fragment_friends, container, false);
     }
 
     private void displayFriendList() {
@@ -59,12 +59,19 @@ public class FriendsFragment extends ListFragment {
 
                 if (e == null) {
                     // list returned - look for a match
-                    mFriends = friends;
-                    String[] friendSize = new String[mFriends.size()];
-                    int i = 0;
-                    for (ParseUser user : mFriends) {
-                        friendSize[i] = user.getUsername();
-                        i++;
+
+                    String[] friendSize = new String[0];
+                    if (friends.size() > 0) {
+
+                        mFriends = friends;
+                        friendSize = new String[mFriends.size()];
+                        int i = 0;
+                        for (ParseUser user : mFriends) {
+                            friendSize[i] = user.getUsername();
+                            i++;
+                        }
+
+
                     }
 
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -73,10 +80,9 @@ public class FriendsFragment extends ListFragment {
                             friendSize);
                     setListAdapter(adapter);
 
-
                 } else {
                     Log.e(TAG, e.getMessage());
-                    Tools.displayErrorDialog(e, getString(R.string.ERROR_TITLE), getContext());
+                    Tools.displayErrorDialog(e.getMessage(), getString(R.string.ERROR_TITLE), getContext());
 
                 }
             }

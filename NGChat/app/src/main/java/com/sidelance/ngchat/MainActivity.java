@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
 
-            Log.i(TAG, currentUser.getUsername());
+            Log.i(TAG, "User found");
         }
 
 

@@ -31,4 +31,5 @@
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="ERROR_TITLE">We\'re sorry!</string>
     <string name="FRIEND_REQUEST_SENT">A friend request has been sent to</string>
+    <string name="MENU_CAMERA_LABEL">Camera</string>
 </resources>

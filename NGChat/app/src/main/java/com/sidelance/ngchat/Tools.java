@@ -32,7 +32,7 @@ public class Tools {
     }
 
 
-    public static void setFlagsAndStartMainActivity(Context mCurrentContext, Class mClass, int flagA, int flagB){
+    public void setFlagsAndStartActivity(Context mCurrentContext, Class mClass, int flagA, int flagB){
 
         Intent intent = new Intent(mCurrentContext, mClass.getClass());
         intent.addFlags(flagA);

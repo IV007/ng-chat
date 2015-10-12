@@ -8,6 +8,7 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 /**
  * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -23,6 +24,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     {
         super(fm);
         mContext = context;
+        Log.d(TAG, "Create");
     }
 
     @Override

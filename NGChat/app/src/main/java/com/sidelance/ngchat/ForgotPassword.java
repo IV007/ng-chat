@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -20,12 +21,13 @@ import com.parse.RequestPasswordResetCallback;
 
 public class ForgotPassword extends AppCompatActivity {
 
+    private static final String TAG = ForgotPassword.class.getSimpleName();
     protected EditText mEmailEditText;
     protected Button mResetPasswordButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        Log.d(TAG, "Create");
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
         super.onCreate(savedInstanceState);

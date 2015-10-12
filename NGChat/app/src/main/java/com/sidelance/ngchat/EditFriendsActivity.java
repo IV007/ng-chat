@@ -30,6 +30,7 @@ public class EditFriendsActivity extends ListActivity {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "Create");
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
         super.onCreate(savedInstanceState);

@@ -1,6 +1,5 @@
 package com.sidelance.ngchat;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -21,6 +20,8 @@ import com.parse.ParseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = LoginActivity.class.getSimpleName();
+
     protected TextView mSignUpTextView;
 
     protected EditText mUsername;
@@ -28,8 +29,13 @@ public class LoginActivity extends AppCompatActivity {
     protected Button mLoginButton;
     protected TextView mForgotPassword;
 
+    private Tools tools = new Tools();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Log.d(TAG, "Create");
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
         super.onCreate(savedInstanceState);
@@ -61,8 +67,8 @@ public class LoginActivity extends AppCompatActivity {
                 Tools.startActivityIntent(LoginActivity.this, SignUpActivity.class);
 
 
-                Intent signUpIntent = new Intent(LoginActivity.this, SignUpActivity.class);
-                startActivity(signUpIntent);
+//                Intent signUpIntent = new Intent(LoginActivity.this, SignUpActivity.class);
+//                startActivity(signUpIntent);
             }
         });
 
@@ -74,8 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                 Tools.startActivityIntent(LoginActivity.this, ForgotPassword.class);
 
 
-                Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
-                startActivity(intent);
+//                Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
+//                startActivity(intent);
             }
         });
 
@@ -103,15 +109,15 @@ public class LoginActivity extends AppCompatActivity {
                             if (e == null){
 
                                 //Test this method.
-                                Tools.setFlagsAndStartMainActivity(LoginActivity.this,
-                                        MainActivity.class, Intent.FLAG_ACTIVITY_NEW_TASK,
-                                        Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
-
-//                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                                startActivity(intent);
+//                                tools.setFlagsAndStartActivity(LoginActivity.this,
+//                                        MainActivity.class, Intent.FLAG_ACTIVITY_NEW_TASK,
+//                                        Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//
+//
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
 
                             } else{
 

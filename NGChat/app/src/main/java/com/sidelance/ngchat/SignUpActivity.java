@@ -1,6 +1,5 @@
 package com.sidelance.ngchat;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -19,6 +19,8 @@ import com.parse.SignUpCallback;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    private static final String TAG = SignUpActivity.class.getSimpleName();
+
     protected EditText mUsername;
     protected EditText mPassword;
     protected EditText mEmail;
@@ -26,6 +28,8 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "Create");
+
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
         super.onCreate(savedInstanceState);
@@ -88,21 +92,21 @@ public class SignUpActivity extends AppCompatActivity {
                 if (e == null) {
 
                     //Test this method.
-                    Tools.setFlagsAndStartMainActivity(SignUpActivity.this,
-                            MainActivity.class, Intent.FLAG_ACTIVITY_NEW_TASK,
-                            Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
+//                    tools.setFlagsAndStartActivity(SignUpActivity.this,
+//                            MainActivity.class, Intent.FLAG_ACTIVITY_NEW_TASK,
+//                            Intent.FLAG_ACTIVITY_CLEAR_TASK);
 //
-//                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                    startActivity(intent);
+
+                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
 
                 } else {
 
                     String errorTitle = getString(R.string.SIGN_UP_ERROR_TITLE);
                     Tools.displayErrorDialog(e.getMessage(), errorTitle, SignUpActivity.this);
-                    
+
                 }
             }
         });

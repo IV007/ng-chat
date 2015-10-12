@@ -31,6 +31,7 @@ public class FriendsFragment extends ListFragment {
     public void onResume() {
         super.onResume();
 
+        Log.d(TAG, "Resumed");
 
         mCurrentUser = ParseUser.getCurrentUser();
         mFriendsRelation = mCurrentUser.getRelation(ParseConstants.KEY_FRIENDS_RELATION);

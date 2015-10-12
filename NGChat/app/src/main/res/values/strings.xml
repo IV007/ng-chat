@@ -31,5 +31,24 @@
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="ERROR_TITLE">We\'re sorry!</string>
     <string name="FRIEND_REQUEST_SENT">A friend request has been sent to</string>
+
+
+    <!-- Camera functionality strings-->
     <string name="MENU_CAMERA_LABEL">Camera</string>
+    <string name="ERROR_EXTERNAL_STORAGE">There was a problem accessing your device\'s external storage</string>
+    <string name="GENERAL_ERROR">Sorry, there was an error!</string>
+    <string name="VIDEO_FILE_SIZE_WARNING">The selected video must be less than 10 MB</string>
+    <string name="ERROR_OPENING_FILE">There was an error opening the file</string>
+    <string name="ERROR_FILE_SIZE_TOO_LARGE">The selected file is too large, please select a new file.</string>
+
+    <string-array name="CAMERA_CHOICES">
+        <item>Take Picture</item>
+        <item>Take Video</item>
+        <item>Choose Picture</item>
+        <item>Choose Video</item>
+    </string-array>
+    <string name="title_activity_recipients">Choose Recipients</string>
+    <string name="EMPTY_RECIPIENTS_STRINGS_MESSAGE">Chosse some firends first</string>
+    <string name="ERROR_SELECTING_FILE_FOR_UPLOAD">There was an error with the file selected, please select a different file</string>
+
 </resources>
